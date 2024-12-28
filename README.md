@@ -139,9 +139,65 @@ networks:
 
 ### Étapes pour démarrer le projet :
 
-1. *Clonez le projet :*
-   ```bash
-   git clone <repository_url>
-   cd <nom_du_dossier_du_projet>
+## Cloner le Projet
+
+bash
+git clone <repository_url>
+cd <project_folder>
+
+
+## Installer les Dépendances du Backend
+
+- Ouvrez un terminal dans le dossier du projet backend.
+- Exécutez la commande suivante :
+
+bash
+mvn clean install
+
+
+## Lancer le Backend
+
+- Démarrez les serveurs Apache et MySQL avec XAMPP.
+- Lancez l'application Spring Boot. La base de données et les entités seront créées automatiquement.
+- Vérifiez que le backend fonctionne en accédant à [http://localhost:8080](http://localhost:8080) dans votre navigateur.
+
+## Installer Node.js et Angular
+
+- Ouvrez un nouveau terminal pour le projet frontend.
+- Assurez-vous que NVM utilise la version compatible de Node.js :
+
+- Installez Angular CLI globalement :
+
+bash
+npm install -g @angular/cli
+
+
+## Installer les Dépendances du Frontend
+
+- Exécutez la commande suivante dans le dossier du projet frontend :
+
+bash
+npm install
+
+
+- Si vous rencontrez des erreurs, utilisez cette commande :
+
+bash
+npm install --save --legacy-peer-deps
+
+
+## Lancer le Frontend
+
+- Après l'installation des dépendances, démarrez le serveur de développement Angular :
+
+bash
+ng serve
+
+
+- Accédez au frontend à l'adresse [http://localhost:4200](http://localhost:4200) dans votre navigateur.
 # Video Demonstration
+
+
+https://github.com/user-attachments/assets/15c2f31f-c007-4e61-b109-3eba07b565d0
+
 
