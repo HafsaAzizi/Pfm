@@ -1,6 +1,4 @@
-# Pfm
 # Projet de Gestion de Commandes de Restauration
-
 Ce projet permet aux clients de passer des commandes en ligne et aux administrateurs de gérer le menu, les commandes et suivre les statistiques de ventes. Il comprend un formulaire de commande, la gestion des menus et des statistiques en temps réel.
 
 ## Table des matières
@@ -58,7 +56,6 @@ L'administrateur peut :
 ### 3. Suivre les revenus :
 - Suivre les revenus journaliers, hebdomadaires et mensuels via des statistiques en temps réel.
 
-
 ## Tableau de bord dynamique
 
 Le tableau de bord fournit des statistiques détaillées sur les ventes :
@@ -68,7 +65,6 @@ Le tableau de bord fournit des statistiques détaillées sur les ventes :
 - Commandes en attente .
 
 ## Technologies utilisées
-
 - *Frontend :*
   - Angular
   - HTML, CSS, TypeScript
@@ -82,90 +78,49 @@ Le tableau de bord fournit des statistiques détaillées sur les ventes :
 ```sh
 
 version: '3.9'
-
-
-
 services:
 
-  frontend:
 
+ frontend:
     build:
-
       context: ./frontend-restaurant
-
-      dockerfile: Dockerfile
-
+     dockerfile: Dockerfile
     ports:
-
       - "80:80"
-
     volumes:
-
       - ./frontend-restaurant:/app
-
     command: npm start
-
     depends_on:
-
       - backend
-
     develop:
-
       watch:
-
         - action: sync
-
           path: ./frontend-restaurant
-
           target: /app
-
           ignore:
-
             - node_modules/
-
         - action: rebuild
-
           path: ./frontend-restaurant/package.json
 
 
-
   backend:
-
     build:
-
-      context: ./restaurant-version-final
-
+     context: ./restaurant-version-final
       dockerfile: Dockerfile
-
     ports:
-
       - "8080:8080"
-
     volumes:
-
       - ./restaurant-version-final:/app
-
     command: java -jar /app/mon-backend.jar
-
     develop:
-
-      watch:
-
+     watch:
         - action: sync
-
           path: ./restaurant-version-final
-
           target: /app
-
           ignore:
-
             - node_modules/
-
         - action: rebuild
-
           path: ./restaurant-version-final/pom.xml
-
-
 
 networks:
 
