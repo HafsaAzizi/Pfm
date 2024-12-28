@@ -1,0 +1,55 @@
+<!-- categories.component.html -->
+<div class="content-wrapper">
+  <div class="categories-container">
+    <h2>Gestion des Catégories</h2>
+
+    <!-- Formulaire pour ajouter une catégorie -->
+    <form (ngSubmit)="onSubmit()" #categoryForm="ngForm" class="category-form">
+      <div class="form-group">
+        <label for="nom">Nom de la Catégorie</label>
+        <input
+          type="text"
+          id="nom"
+          class="form-control"
+          [(ngModel)]="newCategory.nom"
+          name="nom"
+          required
+        />
+      </div>
+      <button class="btn btn-primary mt-2" [disabled]="!categoryForm.form.valid">
+        Ajouter
+      </button>
+    </form>
+
+    <!-- Liste des catégories -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.id }}</td>
+          <td>{{ category.nom }}</td>
+          <td>
+            <button
+              class="btn btn-warning btn-sm me-2"
+              (click)="editCategory(category)"
+            >
+              Modifier
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteCategory(category.id)"
+            >
+              Supprimer
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

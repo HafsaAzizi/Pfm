@@ -1,0 +1,98 @@
+<navbar></navbar>
+<!-- Router outlet pour les routes client -->
+<router-outlet></router-outlet>
+
+<main>
+	
+	  
+	<section id="home" class="flex-row">
+		<div class="wrapper home-content">
+			<div>
+				<h1>Cuisine d'une Qualité Incomparable</h1>
+				<p>
+					Bienvenue ! Profitez de notre délicieuse cuisine et de notre
+					ambiance chaleureuse, où la passion culinaire se marie à un service
+					exceptionnel.
+				</p>
+				<button class="btn booking-scroll" (click)="scrollToBookingTable()">
+					Réservez en ligne
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<section id="special-dishes">
+		<div class="title-center">
+			<h2>Plats Spéciaux</h2>
+			<p>
+				Découvrez nos plats spéciaux, soigneusement préparés pour ravir vos papilles. Une fusion de saveurs qui vous emmènera dans un voyage culinaire unique.
+			</p>
+		</div>
+		<div class="wrapper">
+			<card-carousel></card-carousel>
+		</div>
+	</section>
+
+	<section id="about-us">
+		<about></about>
+	</section>
+
+	<section id="offer">
+		<div class="wrapper">
+			<h2>
+				PIZZA DOUBLE FROMAGE <br />
+				30% DE RÉDUCTION
+			</h2>
+			<a class="btn booking-scroll" (click)="scrollToBookingTable()"
+				>RÉSERVEZ EN LIGNE</a
+			>
+		</div>
+	</section>
+
+	<section id="chefs">
+		<team></team>
+	</section>
+
+	<menu></menu>
+
+	<section id="gallery">
+		<div class="title-center">
+			<h2>Galerie</h2>
+		</div>
+		<div class="wrapper flex-row gallery-item zoom-gallery">
+			<a href="../../assets/gallery/gallery-1.jpg">
+				<img src="../../assets/gallery/gallery-1.jpg" />
+			</a>
+			<a href="../../assets/gallery/gallery-2.jpg">
+				<img src="../../assets/gallery/gallery-2.jpg" />
+			</a>
+			<a href="../../assets/gallery/gallery-3.jpg">
+				<img src="../../assets/gallery/gallery-3.jpg" />
+			</a>
+			<a href="../../assets/gallery/gallery-4.jpg">
+				<img src="../../assets/gallery/gallery-4.jpg" />
+			</a>
+			<a href="../../assets/gallery/gallery-5.jpg">
+				<img src="../../assets/gallery/gallery-5.jpg" />
+			</a>
+			<a href="../../assets/gallery/gallery-6.jpg">
+				<img src="../../assets/gallery/gallery-6.jpg" />
+			</a>
+		</div>
+	</section>
+
+	<section id="booking-table">
+		<div class="title-center">
+			<h2>Réservez votre table</h2>
+		</div>
+		<booking-form></booking-form>
+	</section>
+</main>
+
+<footer id="contacts"></footer>
+
+<a class="btn" id="scroll-top" href="#" *ngIf="hasScrolledPastHome">
+	<i class="fa-solid fa-arrow-up-long"></i>
+</a>
+ 
+

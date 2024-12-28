@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2>Bienvenue Administrateur</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nom" 
+        [(ngModel)]="admin.nom" 
+        name="nom" 
+        required 
+        placeholder="Entrez votre nom">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        id="email" 
+        [(ngModel)]="admin.email" 
+        name="email" 
+        required 
+        placeholder="Entrez votre email">
+    </div>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+  </form>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>
+</div>

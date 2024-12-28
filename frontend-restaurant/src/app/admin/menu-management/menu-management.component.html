@@ -1,0 +1,64 @@
+<div class="menu-container">
+  <h2 class="text-2xl font-bold mb-4">Gestion des Menus</h2>
+  <button class="btn btn-primary mb-4" (click)="openAddMenuModal()">Ajouter un Menu</button>
+
+  <div class="menu-grid">
+    <div class="menu-card" *ngFor="let menu of menus">
+      <img [src]="menu.imageURL" class="w-full h-48 object-cover" alt="Image du menu">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2">{{ menu.nom }}</h3>
+        <p class="text-sm text-gray-600 mb-2">{{ menu.description }}</p>
+        <p class="text-sm font-medium mb-2">Prix: {{ menu.prix }} DH</p>
+        <p class="text-sm text-gray-600 mb-4">Catégorie: {{ menu.categorie?.nom }}</p>
+        <div class="flex justify-between">
+          <button class="btn btn-secondary" (click)="editMenu(menu)">Modifier</button>
+          <button class="btn btn-danger" (click)="deleteMenu(menu.id)">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" [ngClass]="{'show': isEditModalOpen}" (click)="closeEditModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ selectedMenu.id ? 'Modifier' : 'Ajouter' }} le Menu</h5>
+        <button type="button" class="btn-close" (click)="closeEditModal()">&times;</button>
+      </div>
+      <form (ngSubmit)="updateMenu()" #menuForm="ngForm">
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" class="form-control" [(ngModel)]="selectedMenu.nom" name="nom" required>
+        </div>
+        <div class="form-group">
+          <label for="categorie">Catégorie</label>
+          <select id="categorie" class="form-control" [(ngModel)]="selectedMenu.categorie" name="categorie" required>
+            <option [ngValue]="null">Sélectionner une catégorie</option>
+            <option *ngFor="let cat of categories" [ngValue]="cat">{{ cat.nom }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="prix">Prix</label>
+          <input type="number" id="prix" class="form-control" [(ngModel)]="selectedMenu.prix" name="prix" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" class="form-control" [(ngModel)]="selectedMenu.description" name="description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input type="file" class="form-control" id="image" (change)="onFileSelected($event)" accept="image/*">
+        </div>
+        <div *ngIf="selectedMenu.imageURL" class="upload-preview">
+          <img [src]="selectedMenu.imageURL" alt="Preview">
+        </div>
+        <div class="mt-4 flex justify-end">
+          <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Annuler</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!menuForm.form.valid">
+            {{ selectedMenu.id ? 'Mettre à jour' : 'Ajouter' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

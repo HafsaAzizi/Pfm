@@ -1,0 +1,57 @@
+<section id="menu">
+	<div class="title-center">
+	  <h2>Notre Menu</h2>
+	</div>
+	
+	<!-- Panier flottant -->
+	<div class="cart-floating">
+	  <button class="cart-button" (click)="toggleCart()">
+		<i class="fas fa-shopping-cart"></i>
+		<span class="cart-count" *ngIf="cartItems.length > 0">{{cartItems.length}}</span>
+	  </button>
+	</div>
+  
+	<!-- Categories -->
+	<div class="categories-container">
+	  <nav class="category-nav">
+		<ul class="category-list">
+		  <li *ngFor="let tab of tabs">
+			<a [class.active]="activeTab === tab.nom" (click)="setActiveTab(tab.nom)">
+			  {{ tab.nom }}
+			</a>
+		  </li>
+		</ul>
+	  </nav>
+	</div>
+  
+	<!-- Menu Items Grid -->
+	<div class="menu-grid">
+	  <div class="menu-items-container">
+		<div class="menu-card" *ngFor="let item of getFilteredItems()" [class.fade-in]="itemInCurrentTab(item)">
+		  <div class="menu-card-image">
+			<img [src]="item.imageURL" [alt]="item.nom" />
+		  </div>
+		  <div class="menu-card-content">
+			<h3>{{ item.nom }}</h3>
+			<p class="description">{{ item.description }}</p>
+			<div class="price-order">
+			  <span class="price">{{ item.prix }} DH</span>
+			  <button class="order-button" (click)="addToCart(item)">
+				Ajouter au panier
+			  </button>
+			  
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- Updated Client Form Modal -->
+  <div class="client-form-overlay" *ngIf="isClientFormVisible" [class.visible]="isClientFormVisible">
+    <div class="client-form-container">
+      <button class="close-btn" (click)="closeClientForm()" aria-label="Close form">×</button>
+      <app-client-form></app-client-form>
+    </div>
+  </div>
+  
+	
+  </section>

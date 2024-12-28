@@ -1,0 +1,96 @@
+<!-- commandes.component.html -->
+<div class="commandes-container">
+    <!-- Tableau de bord -->
+    <div class="dashboard">
+      <h2>Tableau de bord</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Revenu quotidien</h3>
+          <p>{{ revenuQuotidien | currency:'MAD' }}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Revenu hebdomadaire</h3>
+          <p>{{ revenuHebdomadaire | currency:'MAD' }}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Revenu mensuel</h3>
+          <p>{{ revenuMensuel | currency:'MAD' }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- commandes.component.html -->
+<div class="commandes-container">
+  <h2>COMMANDES EN ATTENTE</h2>
+  
+  <div class="commandes-grid">
+    <div *ngFor="let commande of commandesEnAttente" class="commande-card">
+      <h3>COMMANDE #{{commande.id}}</h3>
+      <div class="commande-details">
+        <p><strong>Client:</strong> {{commande.client?.nom || 'Non spécifié'}}</p>
+        <p><strong>Total:</strong> {{commande.prixTotal | currency:'MAD'}}</p>
+        <p><strong>État:</strong> {{commande.etatCommande}}</p>
+      </div>
+      <div class="actions">
+        <button (click)="changerEtatCommande(commande.id, EtatCommande.EN_PREPARATION)"
+                [class.active]="commande.etatCommande === EtatCommande.EN_PREPARATION">
+          En préparation
+        </button>
+        <button (click)="changerEtatCommande(commande.id, EtatCommande.PRET)"
+                [class.active]="commande.etatCommande === EtatCommande.PRET">
+          Prêt
+        </button>
+        <button (click)="changerEtatCommande(commande.id, EtatCommande.LIVRE)"
+                [class.active]="commande.etatCommande === EtatCommande.LIVRE">
+          Livré
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--div class="container">
+    <h2>Commandes Terminées</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID Commande</th>
+          <th>Client</th>
+          <th>Date Commande</th>
+          <th>Prix Total</th>
+          <th>État de la Commande</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let commande of commandesTerminees">
+          <td>{{ commande.id }}</td>
+          <td>{{ commande.client?.nom }}</td-------->  <!-- Assurez-vous que le champ client existe et contient un nom -->
+          <!--td>{{ commande.dateCommande | date: 'dd/MM/yyyy' }}</td-------->  <!-- Formatage de la date -->
+          <!--td>{{ commande.prixTotal | currency }}</td--->  <!-- Formatage du prix -->
+          <!--td>{{ commande.etatCommande }}</td--> <!-- Affichage de l'état -->
+        <!--/tr--->
+      <!--/tbody>
+    </table>
+  </div--->
+  
+
+  <!-- Plat le plus vendu -->
+  <h2>PLAT LE PLUS VENDU</h2>
+  <div class="best-seller" *ngIf="platLePlusVendu">
+    <div class="plat-card">
+      <img *ngIf="platLePlusVendu.imageURL" [src]="platLePlusVendu.imageURL" [alt]="platLePlusVendu.nom">
+      <h3>{{platLePlusVendu.nom}}</h3>
+      <p>Prix: {{platLePlusVendu.prix | currency:'MAD'}}</p>
+      <!--p>Nombre de ventes: {{platLePlusVendu.quantite}}</p-->
+    </div>
+  </div>
+
+  <!-- Revenus par catégorie -->
+  <h2>REVENUS PAR CATÉGORIE</h2>
+  <div class="revenus-grid">
+    <div *ngFor="let revenu of revenusParCategorie">
+      <p>Catégorie : {{ revenu.nomCategorie }}</p>
+      <p>Revenus : {{ revenu.revenu | currency:'MAD' }}</p>
+    </div>
+    
+  </div>
+</div>

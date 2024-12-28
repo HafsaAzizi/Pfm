@@ -1,0 +1,20 @@
+# Node.js / Angular
+node_modules/
+dist/
+.angular/
+*.log
+
+# Java / Spring Boot
+target/
+*.class
+*.jar
+*.war
+*.log
+
+# Docker
+*.env
+*.pid
+
+# Système
+.DS_Store
+Thumbs.db

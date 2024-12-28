@@ -1,0 +1,117 @@
+.navbar {
+	background-color: black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 90px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 0 5em;
+	margin: 0 auto;
+	z-index: 100;
+	font-family: "Poppins", sans-serif;
+	transition: background-color 0.5s ease-in-out;
+  }
+ 
+  .navbar:hover {
+	background-color: #1a1a1a; /* Change the background color on hover if needed */
+  }
+  
+  .active {
+	color: #fdca33;
+	transition: color 0.5s ease-in-out;
+  }
+  
+  .flex-row {
+	z-index: 100;
+  }
+  
+  a {
+	font-weight: 900;
+	font-size: 18px;
+	line-height: 1.5;
+	color: white;
+	text-decoration: none;
+	margin: 0 10px;
+	padding: 5px 10px;
+	transition: color 0.5s ease-in-out;
+  }
+  
+  a:hover {
+	color: #fdca33; /* Change the color on hover if needed */
+	transform: scale(1.1) rotate(5deg); /* Add scaling and rotation effect on hover */
+  }
+  
+  .isTransparentBg {
+	background-color: transparent;
+  }
+  
+  .wrapper a:hover,
+  .fa-solid:hover {
+	color: #fdca33;
+	cursor: pointer;
+	transform: rotate(10deg); /* Add a rotation effect on hover */
+	transition: transform 0.5s ease-in-out;
+  }
+  
+  .fa-solid {
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+	font-size: 30px;
+	transition: color 0.5s ease-in-out;
+  }
+  
+  .menu-big {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+  }
+  
+  @media screen and (max-width: 992px) {
+	/* Hide the menu on smaller screens */
+	nav {
+	  display: none;
+	}
+  }
+  
+  .menu-small {
+	list-style: none;
+  }
+  
+  .offcanvas {
+	background-color: #000;
+	color: #fff;
+	transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+  
+  .btn-close-white {
+	color: #fff;
+	margin-top: 5px;
+	font-size: 30px;
+	transition: color 0.5s ease-in-out;
+  }
+  
+  .btn-close-white:hover {
+	color: #fdca33; /* Change the color on hover if needed */
+	cursor: pointer;
+	transform: rotate(10deg); /* Add a rotation effect on hover */
+  }
+/* CSS */
+#logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* Couleur du texte */
+}

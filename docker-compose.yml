@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ./frontend-restaurant
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend-restaurant:/app
+    command: npm start
+    depends_on:
+      - backend
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend-restaurant
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./frontend-restaurant/package.json
+
+  backend:
+    build:
+      context: ./restaurant-version-final
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./restaurant-version-final:/app
+    command: java -jar /app/mon-backend.jar
+    develop:
+      watch:
+        - action: sync
+          path: ./restaurant-version-final
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./restaurant-version-final/pom.xml
+
+networks:
+  restaurant-network:
+    driver: bridge

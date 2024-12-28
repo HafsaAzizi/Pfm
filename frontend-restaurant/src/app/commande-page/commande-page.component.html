@@ -1,0 +1,55 @@
+<div class="commande-container">
+    <h2 class="text-2xl font-bold mb-6">Votre Commande</h2>
+    
+    <div class="cart-items" *ngIf="cartItems.length > 0">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <div class="item-image">
+          <img [src]="item.imageURL" [alt]="item.nom" class="w-24 h-24 object-cover rounded-lg"/>
+        </div>
+        <div class="item-details">
+          <h3 class="text-lg font-semibold">{{item.nom}}</h3>
+          <p class="text-gray-600">{{item.prix.toFixed(2)}} DH</p>
+        </div>
+        <div class="item-quantity">
+          <button 
+            class="quantity-btn" 
+            (click)="updateQuantity(item, -1)" 
+            [disabled]="item.quantite <= 1"
+          >-</button>
+          <span class="quantity">{{item.quantite}}</span>
+          <button 
+            class="quantity-btn" 
+            (click)="updateQuantity(item, 1)"
+          >+</button>
+        </div>
+        <div class="item-total">
+          {{(item.prix * item.quantite).toFixed(2)}} DH
+        </div>
+        <button 
+          class="remove-btn" 
+          (click)="removeItem(item.id)"
+          aria-label="Supprimer l'article"
+        >×</button>
+      </div>
+      
+      <div class="cart-summary">
+        <div class="total">Total: {{getTotal().toFixed(2)}} DH</div>
+        <button 
+          class="confirm-btn" 
+          (click)="confirmerCommande()"
+          [disabled]="isProcessing"
+        >
+          {{isProcessing ? 'Traitement...' : 'Confirmer la commande'}}
+        </button>
+      </div>
+    </div>
+  
+    <div class="empty-cart" *ngIf="cartItems.length === 0">
+      <p>Votre panier est vide</p>
+      <button (click)="retourMenu()" class="return-btn">
+        Retour au menu
+      </button>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,41 @@
+<div class="commandes-container">
+  <div class="header">
+    <button class="home-btn" (click)="goToHome()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="home-icon">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </button>
+    <h2>Vos Commandes</h2>
+  </div>
+  
+  <div *ngIf="commandes.length > 0; else noCommandes">
+    <table class="commandes-table">
+      <thead>
+        <tr>
+          <th>n° Commande</th>
+          <th>Date</th>
+          <th>Total</th>
+          <th>État</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let commande of commandes; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ commande.dateCommande | date:'short' }}</td>
+          <td>{{ commande.prixTotal.toFixed(2) }} DH</td>
+          <td>{{ commande.etatCommande }}</td>
+          <td>
+            <!--button (click)="modifierCommande(commande)">Modifier</button--->
+            <button (click)="supprimerCommande(commande.id)" class="delete-btn">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noCommandes>
+    <p>Aucune commande trouvée.</p>
+  </ng-template>
+</div>

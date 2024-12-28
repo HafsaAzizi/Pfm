@@ -1,0 +1,20 @@
+<div *ngIf="platLePlusVendu">
+    <h3>Plat le plus vendu</h3>
+    <p>{{ platLePlusVendu.nom }} - {{ platLePlusVendu.prix }} MAD</p>
+  </div>
+  
+  <div *ngIf="revenusParCategorie.length > 0">
+    <h3>Revenus par catégorie</h3>
+    <canvas baseChart
+            [datasets]="chartData.datasets"
+            [labels]="chartData.labels"
+            [options]="chartOptions"
+            chartType="bar">
+    </canvas>
+  </div>
+  
+  <!--div *ngIf="revenusTotaux >= 0">
+    <h3>Revenus totaux</h3>
+    <p>{{ revenusTotaux }} €</p>
+  </div--->
+  

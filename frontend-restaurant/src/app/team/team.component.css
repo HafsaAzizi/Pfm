@@ -1,0 +1,61 @@
+#chefs .wrapper.flex-row {
+	display: flex;
+	justify-content: space-between;
+	transition: transform 0.5s ease-in-out;
+  }
+  
+  .wrapper.flex-row .chefs-item img {
+	width: 100%;
+	display: block;
+	margin-bottom: 20px;
+	transition: transform 0.5s ease-in-out;
+  }
+  
+  .wrapper.flex-row .chefs-item:hover img {
+	transform: scale(1.1);
+  }
+  
+  .wrapper.flex-row .chefs-item .about-chefs {
+	text-align: center;
+	transition: opacity 0.5s ease-in-out;
+  }
+  
+  .wrapper.flex-row .chefs-item:hover .about-chefs {
+	opacity: 0.9;
+  }
+  
+  .wrapper.flex-row .chefs-item .about-chefs h3 {
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	transition: color 0.5s ease-in-out;
+  }
+  
+  .wrapper.flex-row .chefs-item:hover .about-chefs h3 {
+	color: #fdca33;
+  }
+  
+  .wrapper.flex-row .chefs-item .about-chefs p {
+	margin-bottom: 20px;
+  }
+  
+  .about-chefs .chef-social {
+	display: flex;
+	justify-content: center;
+  }
+  
+  .about-chefs .chef-social li {
+	float: left;
+	margin: 0 10px;
+	transition: transform 0.5s ease-in-out;
+  }
+  
+  .about-chefs .chef-social li a {
+	display: inline-block;
+	text-decoration: none;
+	font-family: "FontAwesome" !important;
+  }
+  
+  .about-chefs .chef-social li a:hover {
+	transform: scale(1.2);
+  }
+  

@@ -1,0 +1,66 @@
+<!--div class="modifier-commande-container">
+    <h2>Modifier la Commande</h2--->
+  
+    <!-- Message d'erreur -->
+    <!---div *ngIf="error" class="error-message">
+      {{ error }}
+    </div---->
+  
+    <!-- Loader -->
+    <!--div *ngIf="loading" class="loading">
+      Chargement en cours...
+    </div--->
+  
+    <!-- Détails de la commande -->
+    <!-------div *ngIf="!loading && commande">
+      <div class="commande-summary">
+        <p><strong>Date :</strong> {{ commande.dateCommande | date:'short' }}</p>
+        <p><strong>État :</strong> {{ commande.etatCommande }}</p>
+        <p><strong>Prix Total :</strong> {{ prixTotal.toFixed(2) }} DH</p>
+        <p><strong>Quantité Totale :</strong> {{ quantiteTotale }}</p>
+      </div>
+  
+      <-- Table des menus -->
+      <!-----table class="commande-table">
+        <thead>
+          <tr>
+            <th>Nom du Menu</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let menu of commande.menus">
+            <ng-container *ngIf="getMenuDetails(menu.menu.id) as menuDetails">
+              <td>{{ menuDetails.nom }}</td>
+              <td>{{ menuDetails.prix.toFixed(2) }} DH</td>
+              <td>{{ menu.quantite }}</td>
+              <td>{{ (menuDetails.prix * menu.quantite).toFixed(2) }} DH</td>
+              <td>
+                <button class="quantity-btn" (click)="updateMenuQuantity(menu.menu.id, 1)">+</button>
+                <button class="quantity-btn" (click)="updateMenuQuantity(menu.menu.id, -1)">-</button>
+              </td>
+            </ng-container>
+            <ng-container *ngIf="!getMenuDetails(menu.menu.id)">
+              <td colspan="5">Chargement des détails du menu...</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table------->
+  
+      <!-- Actions -->
+      <!--------div class="actions">
+        <button (click)="updateCommande()" class="save-btn">Sauvegarder</button>
+        <button (click)="retourCommandes()" class="cancel-btn">Annuler</button>
+      </div>
+    </div---->
+  
+    <!-- Message si aucune commande n'est chargée -->
+    <!--------div *ngIf="!loading && !commande">
+      <p>Aucune commande trouvée.</p>
+      <button (click)="retourCommandes()">Retour</button>
+    </div>
+  </div------->
+  
