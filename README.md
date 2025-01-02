@@ -73,6 +73,10 @@ Le tableau de bord fournit des statistiques détaillées sur les ventes :
   - MySQL
 - *Docker :*
   - Docker Compose pour gérer les conteneurs backend, frontend, base de données, et phpMyAdmin.
+## Schéma de l'Architecture
+![architecture](https://github.com/user-attachments/assets/eeaa422c-7adc-45cb-b3fa-23f1969eee3c)
+
+
 ## Docker Image
 
 ```sh
