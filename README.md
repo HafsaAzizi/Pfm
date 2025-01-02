@@ -203,5 +203,12 @@ ng serve
 
 
 https://github.com/user-attachments/assets/15c2f31f-c007-4e61-b109-3eba07b565d0
+## Article Overleaf
+Vous pouvez consulter l'article complet sur Overleaf en suivant ce lien : [Article Overleaf](https://fr.overleaf.com/read/mrjwgkqnznqd#529283)
 
+## Réalisé par :
+- Hafsa Azizi
+- Manal El Agri
 
+## Encadré par :
+- Dr Mohamed Lachgar
